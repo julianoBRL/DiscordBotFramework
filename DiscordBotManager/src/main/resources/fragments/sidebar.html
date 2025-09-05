@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <aside id="sidebar" class="sidebar" aria-hidden="false" th:fragment="sidebar">
+
+        <nav class="nav flex-column px-1">
+            <a class="nav-link d-flex align-items-center active" href="/">
+                <i class="fas fa-tachometer-alt me-2"></i>
+                <span class="nav-label">Dashboard</span>
+            </a>
+            <a class="nav-link d-flex align-items-center" href="/bots">
+                <i class="fas fa-robot me-2"></i>
+                <span class="nav-label">Bots</span>
+            </a>
+            <a class="nav-link d-flex align-items-center" href="/guilds">
+                <i class="fas fa-server me-2"></i>
+                <span class="nav-label">Guilds</span>
+            </a>
+            <a class="nav-link d-flex align-items-center" href="/apps">
+                <i class="fas fa-th-large me-2"></i>
+                <span class="nav-label">Apps</span>
+            </a>
+            <a class="nav-link d-flex align-items-center" href="/plugins">
+                <i class="fas fa-plug me-2"></i>
+                <span class="nav-label">Plugins</span>
+            </a>
+            <a class="nav-link d-flex align-items-center" href="/settings">
+                <i class="fas fa-cog me-2"></i>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer mt-auto p-3 d-flex flex-column align-items-start">
+            <div class="w-100">
+                <div class="dropdown w-100">
+                    <a href="#" id="sidebarUserMenu" class="d-flex align-items-center text-decoration-none sidebar-user" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://i.pravatar.cc/36" class="avatar rounded-circle" alt="avatar" />
+                        <div class="user-details ms-2">
+                            <div class="fw-semibold">Admin</div>
+                            <div class="small text-muted">Online</div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu shadow-sm" aria-labelledby="sidebarUserMenu">
+                        <li><a class="dropdown-item" href="/profile"><i class="fas fa-user fa-fw me-2"></i> Perfil</a></li>
+                        <li><a class="dropdown-item" href="/settings"><i class="fas fa-sliders-h fa-fw me-2"></i> Configurações</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/auth/login"><i class="fas fa-sign-out-alt fa-fw me-2"></i> Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+</html>

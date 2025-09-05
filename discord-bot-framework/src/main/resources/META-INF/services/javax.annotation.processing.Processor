@@ -1,0 +1,6 @@
+io.github.julianobrl.discordbots.framework.processors.PrefixCommandProcessor
+io.github.julianobrl.discordbots.framework.processors.SlashCommandProcessor
+io.github.julianobrl.discordbots.framework.processors.BotPluginProcessor
+io.github.julianobrl.discordbots.framework.processors.JDAEventListenerProcessor
+io.github.julianobrl.discordbots.framework.processors.PrefixExceptionHandlerProcessor
+io.github.julianobrl.discordbots.framework.processors.SlashExceptionHandlerProcessor

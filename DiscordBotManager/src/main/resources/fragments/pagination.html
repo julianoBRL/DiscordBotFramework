@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="d-flex justify-content-center align-items-center gap-3 mt-2 mb-5 bots-pagination" th:fragment="pagination">
+        <nav aria-label="Bots pagination">
+            <ul class="pagination mb-0">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Anterior"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Próximo"><span aria-hidden="true">&raquo;</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="d-flex align-items-center">
+            <select class="form-select form-select-sm ms-2" aria-label="Items por página" style="width:84px;">
+                <option value="10">10</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+    </div>
+
+</html>

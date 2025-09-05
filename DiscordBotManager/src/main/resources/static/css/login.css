@@ -1,0 +1,152 @@
+:root {
+      --primary-purple: #6f42c1;
+      --input-bg: #0f1720;
+      --card-bg: rgba(20, 20, 24, 0.7);
+      --muted: #9aa3b2;
+      --text-color: #ffffff;
+    }
+
+    html,
+    body {
+      height: 100%;
+      color: var(--text-color);
+    }
+
+    .text-purple,
+    .text-primary,
+    .btn-primary,
+    .form-check-input:checked {
+      color: #fff !important;
+    }
+
+    .text-purple {
+      color: var(--primary-purple) !important;
+    }
+
+    /* Force main text to white */
+    body,
+    .card,
+    .card * {
+      color: var(--text-color) !important;
+    }
+
+    /* Keep muted elements visually lighter but still white */
+    .text-muted {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .login-card {
+      width: 380px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-purple);
+      border-color: var(--primary-purple);
+      box-shadow: 0 6px 18px rgba(111,66,193,0.18);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: #582fb0;
+      border-color: #582fb0;
+    }
+
+    /* Prevent default blue flash on click/focus - enforce purple */
+    .btn-primary:focus,
+    .btn-primary.focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .show > .btn-primary.dropdown-toggle {
+      background-color: var(--primary-purple) !important;
+      border-color: var(--primary-purple) !important;
+      box-shadow: 0 6px 18px rgba(111,66,193,0.25) !important;
+      color: #fff !important;
+      outline: 0 !important;
+    }
+
+    .btn-primary:focus-visible {
+      box-shadow: 0 0 0 0.25rem rgba(111,66,193,0.25) !important;
+    }
+
+    /* Keep button purple when disabled/while loading */
+    .btn-primary:disabled,
+    .btn-primary.disabled,
+    .btn-primary[disabled] {
+      background-color: var(--primary-purple) !important;
+      border-color: var(--primary-purple) !important;
+      color: #fff !important;
+      opacity: 1 !important;
+      box-shadow: 0 6px 18px rgba(111,66,193,0.12) !important;
+      pointer-events: none;
+    }
+
+    /* Remove any browser focus ring that could show blue */
+    .btn-primary:disabled:focus,
+    .btn-primary[disabled]:focus {
+      box-shadow: 0 6px 18px rgba(111,66,193,0.12) !important;
+      outline: 0 !important;
+    }
+
+    .form-control,
+    .form-control:focus,
+    .input-group-text {
+      background-color: transparent;
+      border-color: rgba(255,255,255,0.06);
+      color: #ffffff;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.25rem rgba(111,66,193,0.14);
+      border-color: var(--primary-purple);
+      background-color: rgba(255,255,255,0.02);
+      color: #fff;
+    }
+
+    .input-group-text {
+      border-right: 0;
+      background-color: rgba(0,0,0,0.25);
+    }
+
+    .input-group .form-control {
+      border-left: 0;
+    }
+
+    .form-check-label {
+      user-select: none;
+      color: #ffffff !important;
+    }
+
+    /* Spinner inside button - keep white */
+    .btn .spinner-border {
+      color: #ffffff;
+    }
+
+    /* Alerts: force alert text to black */
+    .alert {
+      color: #000 !important;
+    }
+
+    /* Ensure alert background and close button remain visible on dark page */
+    .alert .btn-close {
+      filter: none;
+    }
+
+    /* Small responsive adjustments */
+    @media (max-width: 420px) {
+      .login-card {
+        width: 92%;
+        margin: 0 4%;
+      }
+    }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Discord Bot Manager</title>
+        <th:block th:replace="~{../fragments/headerEssentials :: headerEssentials}"></th:block>
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+    <body>
+
+        <!-- Top Navbar -->
+        <th:block th:replace="~{../fragments/navbar :: navbar}"></th:block>
+
+        <!-- Sidebar -->
+        <th:block th:replace="~{../fragments/sidebar :: sidebar}"></th:block>
+
+        <!-- Main content -->
+        <main id="mainContent" class="content">
+            <div class="container-fluid py-4">
+
+                <th:block th:replace="~{../fragments/section :: section (name='Dashboard')}"></th:block>
+
+                <div class="row g-3 mb-4">
+                    <th:block th:replace="~{../fragments/cards :: primaryStats (label='Bots', value='1', icon='fa-robot')}"></th:block>
+                    <th:block th:replace="~{../fragments/cards :: dangerStats (label='Guilds', value='1', icon='fa-server')}"></th:block>
+                    <th:block th:replace="~{../fragments/cards :: successStats (label='Plugins', value='1', icon='fa-plug')}"></th:block>
+                    <th:block th:replace="~{../fragments/cards :: warningStats (label='Apps', value='1', icon='fa-th-large')}"></th:block>
+                </div>
+
+                <th:block th:replace="~{../fragments/section :: section (name='Bots')}"></th:block>
+
+                <div class="row g-3 mb-5">
+
+                    <th:block th:replace="~{../fragments/cards :: botCard}"></th:block>
+
+                    <th:block th:replace="~{../fragments/cards :: etcCard (pathTo='/bots')}"></th:block>
+
+                </div>
+
+                <th:block th:replace="~{../fragments/section :: section (name='Guilds')}"></th:block>
+
+                <div class="row g-3 mb-5">
+
+                    <th:block th:replace="~{../fragments/cards :: guildCard}"></th:block>
+
+                    <th:block th:replace="~{../fragments/cards :: etcCard (pathTo='/guilds')}"></th:block>
+
+                </div>
+
+                <th:block th:replace="~{../fragments/section :: section (name='Plugins')}"></th:block>
+
+                <div class="row g-3 mb-5">
+
+                    <th:block th:replace="~{../fragments/cards :: pluginCard}"></th:block>
+
+                    <th:block th:replace="~{../fragments/cards :: etcCard (pathTo='/plugins')}"></th:block>
+
+                </div>
+
+                <th:block th:replace="~{../fragments/section :: section (name='Apps')}"></th:block>
+
+                <div class="row g-3 mb-5">
+
+                    <th:block th:replace="~{../fragments/cards :: appCard}"></th:block>
+
+                    <th:block th:replace="~{../fragments/cards :: etcCard (pathTo='/apps')}"></th:block>
+
+                </div>
+
+            </div>
+        </main>
+
+        <th:block th:replace="~{../fragments/footerEssentials :: footerEssentials}"></th:block>
+        <script src="/js/app.js"></script>
+
+    </body>
+</html>

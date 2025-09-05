@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="col-12 col-md-6 col-lg-4" th:fragment="botCard">
+        <div class="card bot-card h-100">
+            <div class="card-body">
+                <div class="bot-header">
+                    <img src="https://picsum.photos/seed/server1/80" alt="ModManager" class="bot-thumb rounded me-2" />
+                    <h5 class="card-title mb-0">Capybaka</h5>
+                    <a href="#">
+                        <i class="fas fa-ellipsis-v" style="color: white !important;"></i>
+                    </a>
+                </div>
+
+                <div class="small text-muted mb-1">Criado em: 2025-06-02</div>
+                <div class="small text-muted mb-2">Atualizado em: 2025-09-02</div>
+                <div><span class="badge bg-secondary">Inactive</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4" th:fragment="appCard">
+        <div class="card bot-card h-100">
+            <div class="card-body">
+                <div class="bot-header">
+                    <img src="https://picsum.photos/seed/server1/80" alt="ModManager" class="bot-thumb rounded me-2" />
+                    <h5 class="card-title mb-0">LavaPlayer</h5>
+                    <a href="#">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                </div>
+
+                <div class="small text-muted mb-1">Criado em: 2025-09-02</div>
+                <div class="small text-muted mb-2">Atualizado em: -</div>
+                <div><span class="badge bg-secondary">Inactive</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4" th:fragment="guildCard">
+        <div class="card bot-card h-100">
+            <div class="card-body">
+                <div class="bot-header">
+                    <img src="https://picsum.photos/seed/server1/80" alt="Server One" class="bot-thumb rounded me-2" />
+                    <h5 class="card-title mb-0">Capivarismo</h5>
+                    <a href="#">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                </div>
+
+                <div class="small text-muted mb-1">Entrou em: 2023-06-8</div>
+                <div class="small text-muted mb-2">Users: 42</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4" th:fragment="pluginCard">
+        <div class="card bot-card h-100">
+            <div class="card-body">
+                <div class="bot-header">
+                    <img src="https://picsum.photos/seed/server1/80" alt="Server One" class="bot-thumb rounded me-2" />
+                    <h5 class="card-title mb-0">MusicPlayer</h5>
+                    <a href="#">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                </div>
+
+                <div class="small text-muted mb-1">Criado em: 2025-09-02</div>
+                <div class="small text-muted mb-2">Atualizado em: -</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4" th:fragment="etcCard (pathTo)">
+        <a class="card nav-card h-100 d-flex align-items-center justify-content-center text-decoration-none" th:href="${pathTo}">
+            <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+        </a>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3" th:fragment="primaryStats (label, value, icon)">
+        <div class="card stat-card h-100 bg-primary">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <div class="icon-circle">
+                            <i class="fas" th:classAppend="${icon}" style="color: var(--color-primary) !important;"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small stat-label" th:text="${label}"></div>
+                        <div class="h5 stat-value mb-0" th:text="${value}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3" th:fragment="successStats (label, value, icon)">
+        <div class="card stat-card h-100 bg-success">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <div class="icon-circle bg-white text-success">
+                            <i class="fa" th:classAppend="${icon}"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small stat-label" th:text="${label}"></div>
+                        <div class="h5 stat-value mb-0" th:text="${value}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3" th:fragment="warningStats (label, value, icon)">
+        <div class="card stat-card h-100 bg-warning">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <div class="icon-circle bg-white text-warning">
+                            <i class="fa" th:classAppend="${icon}"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small stat-label" th:text="${label}"></div>
+                        <div class="h5 stat-value mb-0" th:text="${value}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3" th:fragment="dangerStats (label, value, icon)">
+        <div class="card stat-card h-100 bg-danger">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <div class="icon-circle bg-white text-danger">
+                            <i class="fas" th:classAppend="${icon}"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small stat-label" th:text="${label}"></div>
+                        <div class="h5 stat-value mb-0" th:text="${value}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</html>

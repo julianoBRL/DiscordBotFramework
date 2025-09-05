@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Discord Bot Manager - Login</title>
+        <th:block th:replace="~{../fragments/headerEssentials :: headerEssentials}"></th:block>
+        <link rel="stylesheet" href="/css/login.css" />
+    </head>
+
+    <body class="bg-dark text-light">
+        <div class="d-flex align-items-center justify-content-center min-vh-100">
+            <div class="card login-card shadow-lg">
+                <div class="card-body p-4">
+
+                <!-- Title -->
+                <div class="text-center mb-3">
+                    <i class="fa-brands fa-discord fa-3x text-purple"></i>
+                    <h4 class="mt-2 mb-0">Discord Bot Manager</h4>
+                    <p class="text-muted small mb-0">Acesse sua conta</p>
+                </div>
+
+                <!-- alertPlaceholder -->
+                <div id="alertPlaceholder"></div>
+
+                <form id="loginForm" novalidate>
+
+                    <!-- Username Field -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuário</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-dark text-muted">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <input type="text" id="username" name="username" class="form-control bg-dark text-light border-dark" placeholder="Digite seu usuário" required aria-describedby="usernameHelp"/>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-dark text-muted">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            <input type="password" id="password" name="password" class="form-control bg-dark text-light border-dark" placeholder="Sua senha" required aria-describedby="passwordHelp" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember" />
+                        <label class="form-check-label text-muted" for="remember">Lembrar-me</label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary w-100 d-flex align-items-center justify-content-center">
+                        <span id="btnSpinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+                        Entrar
+                    </button>
+
+                </form>
+
+                <!-- Footer -->
+                <div class="text-center mt-3">
+                    <small class="text-muted">© Discord Bot Manager</small>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <th:block th:replace="~{../fragments/footerEssentials :: footerEssentials}"></th:block>
+        <script src="/js/login.js"></script>
+
+    </body>
+</html>
