@@ -1,0 +1,16 @@
+{
+  "guid": "demo",
+  "name": "Demo-Plugin",
+  "description": "Simple demo plugin for testing.",
+  "owner": "JulianoBRL",
+  "logo": "https://img.icons8.com/color/512/java-coffee-cup-logo.png",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "changelog": "Initial release",
+      "sourceUrl": "https://github.com/julianoBRL/DiscordBotFramework/releases/download/v1.0.0/demo-plugin-1.0.0.jar",
+      "checksum": "8679e9d1c3e4c3bd5039c81a1ad07c6e",
+      "timestamp": "2023-12-17T10:33:00Z"
+    }
+  ]
+}
