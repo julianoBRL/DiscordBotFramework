@@ -17,9 +17,11 @@ public class DemoPlugin extends AbstractBotPlugin {
 
     @Override
     public void onEnable(){
+        System.out.println("demo onEnable-1");
         SlashCommandsManager.getInstance().addCommand(TestCommand.class);
-
+        System.out.println("demo onEnable-2");
         PrefixCommandsManager.getInstance().addCommand(io.github.julianobrl.demobotplugin.commands.prefix.TestCommand.class);
+        System.out.println("demo onEnable-3");
     }
 
 }
