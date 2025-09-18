@@ -3,12 +3,8 @@ package io.github.julianobrl.discordbots.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.dockerjava.api.model.Container;
 import io.github.julianobrl.discordbots.entities.enums.BotStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -37,6 +33,9 @@ public class Bot {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String containerName;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String containerId;
 
     public Bot map(Container container) {
         this.id = container.getLabels().get("bot-id");

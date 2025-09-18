@@ -8,6 +8,7 @@ import io.github.julianobrl.discordbots.framework.utils.ParameterInjector;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;
 
 import java.util.*;
@@ -91,10 +92,10 @@ public class PrefixCommandsManager extends ListenerAdapter {
     }
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-        if (prefix != null) {
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        if (prefix != null && !prefix.trim().isEmpty() && !Objects.equals(prefix, "")) {
             String content = event.getMessage().getContentRaw();
-            if (content.startsWith(prefix)) {
+            if (content.startsWith(prefix) && prefix != null && !prefix.trim().isEmpty()) {
                 String commandName = content.split(" ")[0].substring(prefix.length());
                 handle(commandName,event);
             }
