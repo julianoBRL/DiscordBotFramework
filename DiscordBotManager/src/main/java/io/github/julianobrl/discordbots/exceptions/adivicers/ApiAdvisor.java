@@ -1,6 +1,6 @@
 package io.github.julianobrl.discordbots.exceptions.adivicers;
 
-import io.github.julianobrl.discordbots.entities.ErrorMessage;
+import io.github.julianobrl.discordbots.entities.dtos.ErrorMessage;
 import io.github.julianobrl.discordbots.exceptions.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

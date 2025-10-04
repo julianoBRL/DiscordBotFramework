@@ -22,6 +22,13 @@ public class DockerService {
     @Autowired
     private BotDeployConfigs botDeployConfigs;
 
+    public List<Container> listContainers() {
+        return dockerClient.listContainersCmd()
+                .withShowAll(true)
+                .withLabelFilter(Map.of("discord-bot", "true"))
+                .exec();
+    }
+
     public Container getContainerById(String id){
         String name = botDeployConfigs.getDeployNamePrefix() + id;
 
@@ -38,25 +45,28 @@ public class DockerService {
         return containers.getFirst();
     }
 
-    public void restartById(String id){
+    public Container restartContainerById(String id){
         Container container = getContainerById(id);
         if(container == null) throw new DockerException("Container not found!", HttpStatus.NOT_FOUND);
         RestartContainerCmd restartCmd = dockerClient.restartContainerCmd(container.getId());
         restartCmd.exec();
+        return container;
     }
 
-    public void stopContainer(String id){
+    public Container stopContainer(String id){
         Container container = getContainerById(id);
         if(container == null) throw new DockerException("Container not found!", HttpStatus.NOT_FOUND);
         StopContainerCmd stopCmd = dockerClient.stopContainerCmd(container.getId());
         stopCmd.exec();
+        return container;
     }
 
-    public void startContainer(String id){
+    public Container startContainer(String id){
         Container container = getContainerById(id);
         if(container == null) throw new DockerException("Container not found!", HttpStatus.NOT_FOUND);
         StartContainerCmd startCmd = dockerClient.startContainerCmd(container.getId());
         startCmd.exec();
+        return container;
     }
 
 }

@@ -25,7 +25,7 @@ public class RestBotsController {
     }
 
     @GetMapping("/{id}/view")
-    public Bot view(@PathVariable(name = "id", required = true) String id){
+    public Bot view(@PathVariable(name = "id") String id){
         return service.getById(id);
     }
 
@@ -40,7 +40,7 @@ public class RestBotsController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public void delete(@PathVariable(name = "id", required = true) String id) {
+    public void delete(@PathVariable(name = "id") String id) {
         service.delete(id);
     }
 

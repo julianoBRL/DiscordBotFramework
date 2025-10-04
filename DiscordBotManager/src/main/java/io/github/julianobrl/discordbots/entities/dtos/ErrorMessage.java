@@ -1,4 +1,4 @@
-package io.github.julianobrl.discordbots.entities;
+package io.github.julianobrl.discordbots.entities.dtos;
 
 import lombok.Builder;
 import lombok.Data;

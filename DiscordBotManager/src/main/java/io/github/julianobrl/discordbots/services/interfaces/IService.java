@@ -1,4 +1,4 @@
-package io.github.julianobrl.discordbots.services;
+package io.github.julianobrl.discordbots.services.interfaces;
 
 import java.util.List;
 
