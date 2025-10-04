@@ -155,4 +155,9 @@ public class PluginService implements IService<Plugin> {
                 );
     }
 
+    public List<Plugin> getInstalledPluginsByBotId(String botId){
+        return repository.findInstalledPluginsByBotsId(botId)
+                .orElseThrow(()-> new PluginException("No plugins installed for this bot!", HttpStatus.NOT_FOUND));
+    }
+
 }

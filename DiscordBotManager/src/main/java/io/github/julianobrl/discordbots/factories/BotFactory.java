@@ -2,10 +2,7 @@ package io.github.julianobrl.discordbots.factories;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.CreateContainerResponse;
-import com.github.dockerjava.api.model.Bind;
-import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.RestartPolicy;
-import com.github.dockerjava.api.model.Volume;
+import com.github.dockerjava.api.model.*;
 import io.github.julianobrl.discordbots.configs.BotDeployConfigs;
 import io.github.julianobrl.discordbots.configs.YamlConfigManager;
 import io.github.julianobrl.discordbots.entities.Bot;
@@ -27,6 +24,7 @@ public class BotFactory {
 
     private final DockerClient dockerClient;
     private final BotDeployConfigs botDeployConfigs;
+    private final DockerService dockerService;
 
     public Bot create(Bot bot){
         log.info("Creating new bot: {}", bot.getName());
@@ -82,6 +80,11 @@ public class BotFactory {
         bot.setStatus(BotStatus.STARTING);
 
         return bot;
+    }
+
+    public void delete(Bot bot){
+        Container container = dockerService.stopContainer(bot.getId());
+        dockerService.delete(container);
     }
 
 }

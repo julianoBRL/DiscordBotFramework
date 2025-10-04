@@ -1,6 +1,7 @@
 package io.github.julianobrl.discordbots.services;
 
 import io.github.julianobrl.discordbots.entities.Bot;
+import io.github.julianobrl.discordbots.entities.Plugin;
 import io.github.julianobrl.discordbots.factories.BotFactory;
 import io.github.julianobrl.discordbots.mappers.ContainerBotMapper;
 import io.github.julianobrl.discordbots.services.interfaces.IService;
@@ -17,6 +18,7 @@ public class BotService implements IService<Bot> {
 
     private final DockerService dockerService;
     private final BotFactory botFactory;
+    private final PluginService pluginService;
 
     @Override
     public List<Bot> list() {
@@ -45,8 +47,11 @@ public class BotService implements IService<Bot> {
     }
 
     @Override
-    public void delete(String id) {
-
+    public void delete(String botId) {
+        pluginService.getInstalledPluginsByBotId(botId).forEach((plugin) ->{
+            pluginService.uninstall(plugin.getId(), botId);
+        });
+        botFactory.delete(ContainerBotMapper.map(dockerService.getContainerById(botId)));
     }
 
     public Bot restartBot(String id){

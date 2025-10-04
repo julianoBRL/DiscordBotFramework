@@ -1,6 +1,7 @@
 package io.github.julianobrl.discordbots.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
@@ -25,6 +26,8 @@ public class Version extends BaseEntity{
     @Column(unique = true)
     private String checksum;
     private Date timestamp;
+
+    @ElementCollection
     private List<String> botsId = new ArrayList<>();
 
 }

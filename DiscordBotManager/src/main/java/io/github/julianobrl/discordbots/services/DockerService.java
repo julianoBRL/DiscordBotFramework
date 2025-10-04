@@ -69,4 +69,7 @@ public class DockerService {
         return container;
     }
 
+    public void delete(Container container) {
+        dockerClient.removeContainerCmd(container.getId()).exec();
+    }
 }

@@ -24,7 +24,7 @@ public class RestBotsController {
         return service.list();
     }
 
-    @GetMapping("/{id}/view")
+    @GetMapping("/view/{id}")
     public Bot view(@PathVariable(name = "id") String id){
         return service.getById(id);
     }
@@ -34,14 +34,24 @@ public class RestBotsController {
         return service.create(bot);
     }
 
-    @PutMapping("/{id}/edit")
-    public Bot edit(Bot object, String id) {
-        return null;
-    }
-
-    @DeleteMapping("/{id}/delete")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable(name = "id") String id) {
         service.delete(id);
+    }
+
+    @PostMapping("/start/{id}")
+    public Bot start(@PathVariable(name = "id") String id) {
+        return service.startBot(id);
+    }
+
+    @PostMapping("/stop/{id}")
+    public Bot stop(@PathVariable(name = "id") String id) {
+        return service.stopBot(id);
+    }
+
+    @PostMapping("/restart/{id}")
+    public Bot restart(@PathVariable(name = "id") String id) {
+        return service.restartBot(id);
     }
 
 }

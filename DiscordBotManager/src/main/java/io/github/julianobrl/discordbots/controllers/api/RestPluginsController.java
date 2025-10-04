@@ -55,4 +55,9 @@ public class RestPluginsController {
         return pluginService.uninstall(pluginId, botId);
     }
 
+    @GetMapping("/installed/bot/{id}")
+    protected List<Plugin> installedInBot(@PathVariable(name = "id") String botId){
+        return pluginService.getInstalledPluginsByBotId(botId);
+    }
+
 }

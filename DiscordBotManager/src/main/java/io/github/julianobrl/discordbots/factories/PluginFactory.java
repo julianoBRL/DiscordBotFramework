@@ -28,17 +28,15 @@ import java.util.Locale;
 public class PluginFactory {
 
     private final BotDeployConfigs botDeployConfigs;
-    private final BotService botService;
     private final DockerService dockerService;
 
     public Version install(Version version, String botId){
 
-        Bot bot = botService.getById(botId);
 
         log.info("Preparing downloading link...");
         String[] downloadLinkSplit = version.getSourceUrl().split("/");
         Path fullPath = Path.of(botDeployConfigs.getVolumeBasePath(),
-                bot.getContainerName(),
+                (botDeployConfigs.getDeployNamePrefix()+botId),
                 botDeployConfigs.getVolumePluginsPath(),
                 downloadLinkSplit[downloadLinkSplit.length - 1]);
 
@@ -64,7 +62,6 @@ public class PluginFactory {
 
     public Version uninstall(Plugin plugin, Version version, String botId){
 
-        Bot bot = botService.getById(botId);
 
         log.info("Stopping container: {}", botId);
         dockerService.stopContainer(botId);
@@ -74,7 +71,7 @@ public class PluginFactory {
             String jarName = plugin.getName().toLowerCase(Locale.ROOT) + "-" + version.getVersion() + ".jar";
             // você pode ajustar o padrão do nome do jar, se precisar
             Path pluginPath = Path.of(botDeployConfigs.getVolumeBasePath(),
-                    bot.getContainerName(),
+                    (botDeployConfigs.getDeployNamePrefix()+botId),
                     botDeployConfigs.getVolumePluginsPath(),
                     jarName);
 
