@@ -26,3 +26,5 @@ replay_pid*
 # testing folders
 ./data
 ./plugins
+/data/
+/plugins/
