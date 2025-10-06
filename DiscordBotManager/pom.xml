@@ -13,22 +13,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DiscordBotManager</name>
 	<description>Gestor de bots dos discord</description>
-	<url/>
-
-	<licenses>
-		<license/>
-	</licenses>
+    <url>https://github.com/julianoBRL/DiscordBotFramework/tree/main/DiscordBotManager</url>
 
 	<developers>
-		<developer/>
+		<developer>
+            <name>Juliano Lira</name>
+            <url>https://github.com/julianoBRL</url>
+        </developer>
 	</developers>
-
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 
 	<properties>
 		<java.version>21</java.version>
@@ -36,6 +28,21 @@
 	</properties>
 
 	<dependencies>
+
+        <!-- SECURITY -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>10.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
 
         <!-- DB -->
         <dependency>
@@ -90,6 +97,10 @@
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate6</artifactId>
+        </dependency>
 
         <!-- TESTS -->
 		<dependency>

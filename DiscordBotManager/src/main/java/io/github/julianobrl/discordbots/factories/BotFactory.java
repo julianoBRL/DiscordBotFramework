@@ -35,25 +35,27 @@ public class BotFactory {
 
         String dockerImage = botDeployConfigs.getBotImageName()+":"+botDeployConfigs.getBotImageVersion();
 
-        log.info("Creating folders for: {}", deployName);
         // Define volume paths
+        log.info("Creating folders for: {}", deployName);
         String volumeBasePath = botDeployConfigs.getVolumeBasePath() + deployName;
         String pluginsPath = volumeBasePath + botDeployConfigs.getVolumePluginsPath();
         String configsPath = volumeBasePath + botDeployConfigs.getVolumeConfigsPath();
+        String dataPath = volumeBasePath + botDeployConfigs.getDataConfigsPath();
 
         log.info("Creating volumes for: {}", deployName);
         HostConfig hostConfig = HostConfig.newHostConfig()
-                .withBinds(
-                        new Bind(pluginsPath, new Volume("/app/plugins")),
-                        new Bind(configsPath, new Volume("/app/configs"))
-                )
-                .withRestartPolicy(RestartPolicy.unlessStoppedRestart());
+            .withBinds(
+                new Bind(pluginsPath, new Volume("/app/plugins")),
+                new Bind(configsPath, new Volume("/app/configs")),
+                new Bind(dataPath, new Volume("/app/data"))
+            )
+            .withRestartPolicy(RestartPolicy.unlessStoppedRestart());
 
         log.info("Creating labels for: {}", deployName);
         Map<String, String> labels = Map.of(
-                "discord-bot", "true",
-                "bot-id", botId,
-                "bot-name", bot.getName()
+        "discord-bot", "true",
+        "bot-id", botId,
+        "bot-name", bot.getName()
         );
 
         log.info("Pulling container image for: {}", deployName);
@@ -61,10 +63,10 @@ public class BotFactory {
 
         log.info("Crating container for: {}", deployName);
         CreateContainerResponse container = dockerClient.createContainerCmd(dockerImage)
-                .withName(deployName)
-                .withHostConfig(hostConfig)
-                .withLabels(labels)
-                .exec();
+            .withName(deployName)
+            .withHostConfig(hostConfig)
+            .withLabels(labels)
+            .exec();
 
         log.info("Generating config file for: {}", deployName);
         YamlConfigManager yamlConfigManager = new YamlConfigManager(configsPath + "\\application.yml");

@@ -2,6 +2,7 @@ package io.github.julianobrl.discordbots.services;
 
 import io.github.julianobrl.discordbots.entities.Bot;
 import io.github.julianobrl.discordbots.entities.Plugin;
+import io.github.julianobrl.discordbots.entities.dtos.socket.SelfInfoDto;
 import io.github.julianobrl.discordbots.factories.BotFactory;
 import io.github.julianobrl.discordbots.mappers.ContainerBotMapper;
 import io.github.julianobrl.discordbots.services.interfaces.IService;
@@ -19,6 +20,7 @@ public class BotService implements IService<Bot> {
     private final DockerService dockerService;
     private final BotFactory botFactory;
     private final PluginService pluginService;
+    private final BotSocket botSocket;
 
     @Override
     public List<Bot> list() {
@@ -64,6 +66,10 @@ public class BotService implements IService<Bot> {
 
     public Bot startBot(String id){
         return ContainerBotMapper.map(dockerService.startContainer(id));
+    }
+
+    public SelfInfoDto getBotInfo(String id){
+        return botSocket.getBotInfo(id);
     }
 
 }

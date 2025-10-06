@@ -20,6 +20,9 @@ public class BotDeployConfigs {
     @Value("${docker.volume.configs.path}")
     private String volumeConfigsPath;
 
+    @Value("${docker.volume.data.path}")
+    private String dataConfigsPath;
+
     @Value("${docker.bot.image.name}")
     private String botImageName;
 

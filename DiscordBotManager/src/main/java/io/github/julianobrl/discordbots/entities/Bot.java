@@ -1,5 +1,6 @@
 package io.github.julianobrl.discordbots.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.dockerjava.api.model.Container;
 import io.github.julianobrl.discordbots.entities.enums.BotStatus;
@@ -17,6 +18,7 @@ import java.time.ZoneId;
 
 @Data
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bot{
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)

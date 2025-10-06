@@ -1,5 +1,6 @@
 package io.github.julianobrl.discordbots.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = true)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Version extends BaseEntity{
 
     @Column(unique = true)

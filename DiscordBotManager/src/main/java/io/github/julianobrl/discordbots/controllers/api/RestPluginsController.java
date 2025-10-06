@@ -3,6 +3,7 @@ package io.github.julianobrl.discordbots.controllers.api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.github.julianobrl.discordbots.entities.Plugin;
 import io.github.julianobrl.discordbots.services.PluginService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/plugins")
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Plugins", description = "Plugins Manager")
 public class RestPluginsController {
 

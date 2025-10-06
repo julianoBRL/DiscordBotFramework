@@ -1,5 +1,6 @@
 package io.github.julianobrl.discordbots.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.julianobrl.discordbots.entities.enums.PluginStatus;
 import io.github.julianobrl.discordbots.entities.serializables.PluginId;
@@ -21,6 +22,7 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Plugin{
 
     @Id
