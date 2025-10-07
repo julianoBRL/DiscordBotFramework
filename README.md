@@ -1,2 +1,2 @@
 # DiscordBotFramework
-Framework to easily develop discord bots and integrations + a WebManager to manage bots containers, plugins, apps, etc...
+Framework to easily develop discord bots and integrations.
